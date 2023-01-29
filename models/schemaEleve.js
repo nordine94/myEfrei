@@ -2,9 +2,7 @@ const mongoose = require("mongoose")
 
 const schema = mongoose.Schema({
 	Nom: String,
-	Prenom: String,
-    Matiere: String,
-    Note: Number
+	Prenom: String
 })
 
 module.exports = mongoose.model("eleves", schema)
