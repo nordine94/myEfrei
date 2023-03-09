@@ -1,7 +1,8 @@
 const mongoose = require("mongoose")
 
-const schema = mongoose.Schema({
+const MatiereSchema = mongoose.Schema({
     Nom: String
 })
 
-module.exports = mongoose.model("matieres", schema)
+const schema =  mongoose.model("matieres", MatiereSchema)
+module.exports = schema

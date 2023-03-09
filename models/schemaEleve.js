@@ -1,8 +1,14 @@
 const mongoose = require("mongoose")
 
-const schema = mongoose.Schema({
-	Nom: String,
-	Prenom: String
-})
 
-module.exports = mongoose.model("eleves", schema)
+
+const EleveSchema = mongoose.Schema({
+	Nom:  String,
+	Prenom: String,
+    Classe: { type: mongoose.Schema.Types.ObjectId, ref:"classe"}
+  })
+
+
+const eleve = mongoose.model("eleves", EleveSchema)
+
+module.exports = eleve

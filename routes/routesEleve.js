@@ -6,9 +6,9 @@ const Eleve = require("../models/schemaEleve")
 router.post("/eleves", async (req, res) => {
 	const eleve = new Eleve({
 		Nom: req.body.nom,
-		Prenom: req.body.prenom
+		Prenom: req.body.prenom,
 	})
-	await eleve.save()
+    await eleve.save()
 	res.send(eleve)
 })
 

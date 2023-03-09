@@ -1,7 +1,13 @@
 const mongoose = require("mongoose")
+const { Schema } = mongoose;
 
-const schema = mongoose.Schema({
-	Nom: String
+
+const ClasseSchema = mongoose.Schema({
+	_id: Schema.Types.ObjectId,
+	Nom: String,
 })
 
-module.exports = mongoose.model("classe", schema)
+
+
+const classe = mongoose.model("classe", ClasseSchema)
+module.exports = classe
