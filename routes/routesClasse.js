@@ -1,12 +1,19 @@
 const express = require("express")
 const router = express.Router()
-const Classe = require("../models/schemaClasse")
+const {classe} = require("../models/schemaClasse")
+const {eleve} = require("../models/schemaEleve")
 
 // Creer une classe
 router.post("/class", async (req, res) => {
-	const classe = new Classe({
-		Nom: req.body.nom
-	})
+	const { Nom, Eleve } = req.body;
+	const Classe = new classe({ Nom, Eleve })
+
+	for (const eleveId of Eleve){
+		const eleves = await eleve.findById(eleveId);
+		if(!eleves) throw new Error(`eleve with Id ${eleveId}not found`);
+		eleves.Classe.push(Classe._id);
+		await eleves.save();
+	}
 	await classe.save()
 	res.send(classe)
 })

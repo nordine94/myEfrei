@@ -2,10 +2,11 @@ const mongoose = require("mongoose")
 
 
 
-const EleveSchema = mongoose.Schema({
+
+const EleveSchema =  mongoose.Schema({ 
 	Nom:  String,
 	Prenom: String,
-    Classe: { type: mongoose.Schema.Types.ObjectId, ref:"classe"}
+    Classe: [{ type: mongoose.Schema.Types.ObjectId, ref:"classe"}]
   })
 
 

@@ -1,10 +1,10 @@
 const mongoose = require("mongoose")
-const { Schema } = mongoose;
 
 
-const ClasseSchema = mongoose.Schema({
-	_id: Schema.Types.ObjectId,
+
+const ClasseSchema =   mongoose.Schema({	
 	Nom: String,
+	Eleve:[{ type: mongoose.Schema.Types.ObjectId, ref: "eleves"}]
 })
 
 
